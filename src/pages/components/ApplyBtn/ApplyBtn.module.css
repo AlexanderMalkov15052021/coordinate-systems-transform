@@ -1,0 +1,10 @@
+.btnWrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    position: absolute;
+    top: 100px;
+    z-index: 1;
+}
