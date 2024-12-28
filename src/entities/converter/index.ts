@@ -15,6 +15,7 @@ class TransformStor {
     summaryAngle: number = 0;
 
     transformParams: { coords: { x: number, y: number }, angle: number } = { coords: { x: 0, y: 0 }, angle: 0 }
+    tmpTransformParams: { coords: { x: number, y: number }, angle: number } = { coords: { x: 0, y: 0 }, angle: 0 }
 
     values: FieldType = {
         srcPoint_1X: 0,
@@ -44,13 +45,9 @@ class TransformStor {
     setIsLoading = (val: boolean) => this.isLoading = val;
 
     applyCoordsTransform = () => {
-        const shiftX = this.transformParams.coords.x;
-        const shiftY = this.transformParams.coords.y;
-        const angle = this.transformParams.angle;
-
-        // const shiftX = 2.5 * -1;
-        // const shiftY = -1.5 * -1;
-        // const angle = 0.1 * -1;
+        const shiftX = this.tmpTransformParams.coords.x;
+        const shiftY = this.tmpTransformParams.coords.y;
+        const angle = this.tmpTransformParams.angle;
 
         const getNewCoordsBezierWhenTurning = (x: number, y: number, angle: number) => {
             const newX = Math.cos(angle) * x - Math.sin(angle) * -y;
@@ -140,7 +137,26 @@ class TransformStor {
         this.setHref(JSON.stringify(this.mooeDoc));
     }
 
+    setTMPParams = (params: { coords: { x: number, y: number }, angle: number }) => {
+
+        this.tmpTransformParams = {
+            coords: {
+                x: this.tmpTransformParams.coords.x + params.coords.x,
+                y: this.tmpTransformParams.coords.y + params.coords.y
+            },
+            angle: this.tmpTransformParams.angle + params.angle
+        };
+
+    }
+
     setParams = (values: FieldType) => {
+
+        this.setTMPParams({
+            coords: { x: this.transformParams.coords.x, y: this.transformParams.coords.y },
+            angle: this.transformParams.angle
+        });
+
+        this.applyCoordsTransform();
 
         this.isLoading = true;
 

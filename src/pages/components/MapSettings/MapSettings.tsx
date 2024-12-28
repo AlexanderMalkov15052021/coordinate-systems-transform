@@ -80,15 +80,16 @@ const MapSettings = observer(() => {
                             <Form.Item<FieldType>
                                 label={"x:"}
                                 name="srcPoint_1X"
-                                rules={[{ required: true, message: 'Пожалуйста, введите угол поворота!' }]}
+                                rules={[{ required: true, message: 'Пожалуйста, введите координату X1!' }]}
                                 className={styles["input-wrapper"]}
                             >
                                 <Input type="number" autoComplete="on" />
                             </Form.Item>
+
                             <Form.Item<FieldType>
                                 label={"y:"}
                                 name="srcPoint_1Y"
-                                rules={[{ required: true, message: 'Пожалуйста, введите угол поворота!' }]}
+                                rules={[{ required: true, message: 'Пожалуйста, введите координату Y1!' }]}
                                 className={styles["input-wrapper"]}
                             >
                                 <Input type="number" autoComplete="on" />
@@ -102,7 +103,7 @@ const MapSettings = observer(() => {
                             <Form.Item<FieldType>
                                 label={"x:"}
                                 name="srcPoint_2X"
-                                rules={[{ required: true, message: 'Пожалуйста, введите угол поворота!' }]}
+                                rules={[{ required: true, message: 'Пожалуйста, введите координату X2!' }]}
                                 className={styles["input-wrapper"]}
                             >
                                 <Input type="number" autoComplete="on" />
@@ -110,7 +111,7 @@ const MapSettings = observer(() => {
                             <Form.Item<FieldType>
                                 label={"y:"}
                                 name="srcPoint_2Y"
-                                rules={[{ required: true, message: 'Пожалуйста, введите угол поворота!' }]}
+                                rules={[{ required: true, message: 'Пожалуйста, введите координату Y2!' }]}
                                 className={styles["input-wrapper"]}
                             >
                                 <Input type="number" autoComplete="on" />
@@ -124,7 +125,7 @@ const MapSettings = observer(() => {
                             <Form.Item<FieldType>
                                 label={"x:"}
                                 name="srcPoint_3X"
-                                rules={[{ required: true, message: 'Пожалуйста, введите угол поворота!' }]}
+                                rules={[{ required: true, message: 'Пожалуйста, введите координату X3!' }]}
                                 className={styles["input-wrapper"]}
                             >
                                 <Input type="number" autoComplete="on" />
@@ -132,7 +133,7 @@ const MapSettings = observer(() => {
                             <Form.Item<FieldType>
                                 label={"y:"}
                                 name="srcPoint_3Y"
-                                rules={[{ required: true, message: 'Пожалуйста, введите угол поворота!' }]}
+                                rules={[{ required: true, message: 'Пожалуйста, введите координату Y3!' }]}
                                 className={styles["input-wrapper"]}
                             >
                                 <Input type="number" autoComplete="on" />
@@ -156,7 +157,7 @@ const MapSettings = observer(() => {
                             <Form.Item<FieldType>
                                 label={"x:"}
                                 name="changePoint_1X"
-                                rules={[{ required: true, message: 'Пожалуйста, введите угол поворота!' }]}
+                                rules={[{ required: true, message: 'Пожалуйста, введите координату X1!' }]}
                                 className={styles["input-wrapper"]}
                             >
                                 <Input type="number" autoComplete="on" />
@@ -164,7 +165,7 @@ const MapSettings = observer(() => {
                             <Form.Item<FieldType>
                                 label={"y:"}
                                 name="changePoint_1Y"
-                                rules={[{ required: true, message: 'Пожалуйста, введите угол поворота!' }]}
+                                rules={[{ required: true, message: 'Пожалуйста, введите координату Y1!' }]}
                                 className={styles["input-wrapper"]}
                             >
                                 <Input type="number" autoComplete="on" />
@@ -178,7 +179,7 @@ const MapSettings = observer(() => {
                             <Form.Item<FieldType>
                                 label={"x:"}
                                 name="changePoint_2X"
-                                rules={[{ required: true, message: 'Пожалуйста, введите угол поворота!' }]}
+                                rules={[{ required: true, message: 'Пожалуйста, введите координату X2!' }]}
                                 className={styles["input-wrapper"]}
                             >
                                 <Input type="number" autoComplete="on" />
@@ -186,7 +187,7 @@ const MapSettings = observer(() => {
                             <Form.Item<FieldType>
                                 label={"y:"}
                                 name="changePoint_2Y"
-                                rules={[{ required: true, message: 'Пожалуйста, введите угол поворота!' }]}
+                                rules={[{ required: true, message: 'Пожалуйста, введите координату Y2!' }]}
                                 className={styles["input-wrapper"]}
                             >
                                 <Input type="number" autoComplete="on" />
@@ -200,7 +201,7 @@ const MapSettings = observer(() => {
                             <Form.Item<FieldType>
                                 label={"x:"}
                                 name="changePoint_3X"
-                                rules={[{ required: true, message: 'Пожалуйста, введите угол поворота!' }]}
+                                rules={[{ required: true, message: 'Пожалуйста, введите координату X3!' }]}
                                 className={styles["input-wrapper"]}
                             >
                                 <Input type="number" autoComplete="on" />
@@ -208,7 +209,7 @@ const MapSettings = observer(() => {
                             <Form.Item<FieldType>
                                 label={"y:"}
                                 name="changePoint_3Y"
-                                rules={[{ required: true, message: 'Пожалуйста, введите угол поворота!' }]}
+                                rules={[{ required: true, message: 'Пожалуйста, введите координату Y3!' }]}
                                 className={styles["input-wrapper"]}
                             >
                                 <Input type="number" autoComplete="on" />

@@ -5,11 +5,11 @@ import styles from "./ApplyBtn.module.css";
 
 const ApplyBtn = observer(() => {
     const {
-        store: { applyCoordsTransform },
+        store: { values, setParams },
     } = TransformStor;
 
     const btnClickHandler = () => {
-        applyCoordsTransform();
+        setParams(values);
     }
 
     return <div className={styles.btnWrapper}>

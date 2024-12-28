@@ -4,14 +4,15 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { TransformControls } from "three/examples/jsm/controls/TransformControls";
 
 function Scene(
-    sceneRef: HTMLDivElement | null, setTransformParams: (params: {
+    sceneRef: HTMLDivElement | null,
+    values: FieldType | null,
+    setTransformParams: (params: {
         coords: {
             x: number;
             y: number;
         };
         angle: number;
-    }) => void,
-    values: FieldType | null
+    }) => void
 ) {
 
     const scene = new THREE.Scene();
@@ -52,7 +53,7 @@ function Scene(
 
     transformControls.setMode('translate');
 
-    transformControls.position?.set(values?.changePoint_1X ?? 0,values?.changePoint_1Y ?? 0, 0);
+    transformControls.position?.set(values?.changePoint_1X ?? 0, values?.changePoint_1Y ?? 0, 0);
 
     scene.add(transformControls);
 
@@ -68,6 +69,8 @@ function Scene(
     });
 
     window.addEventListener('keydown', function (event) {
+        const shift = 0.0001;
+
         switch (event.key) {
             case 't':
                 transformControls.setMode('translate');
@@ -87,13 +90,111 @@ function Scene(
             case 'ы':
                 transformControls.setMode('scale');
                 break;
-            case 'ArrowLeft':  // ArrowUp  ArrowDown  ArrowRight
-                console.log(camera.position);
+            case 'ArrowLeft':
 
-                orbitControls.enabled = false;
-                camera.position.x += .1;
-                camera.position.y = 0;
+                transformControls.children[2].position.x -= shift;
 
+                setTransformParams({
+                    coords: {
+                        x: transformControls.children[2].position.x,
+                        y: transformControls.children[2].position.y
+                    },
+                    angle: transformControls.children[2].rotation.z
+                });
+
+                break;
+            case 'ArrowRight':
+
+                transformControls.children[2].position.x += shift;
+
+                setTransformParams({
+                    coords: {
+                        x: transformControls.children[2].position.x,
+                        y: transformControls.children[2].position.y
+                    },
+                    angle: transformControls.children[2].rotation.z
+                });
+
+                break;
+            case 'ArrowUp':
+
+                transformControls.children[2].position.y += shift;
+
+                setTransformParams({
+                    coords: {
+                        x: transformControls.children[2].position.x,
+                        y: transformControls.children[2].position.y
+                    },
+                    angle: transformControls.children[2].rotation.z
+                });
+
+                break;
+            case 'ArrowDown':
+
+                transformControls.children[2].position.y -= shift;
+
+                setTransformParams({
+                    coords: {
+                        x: transformControls.children[2].position.x,
+                        y: transformControls.children[2].position.y
+                    },
+                    angle: transformControls.children[2].rotation.z
+                });
+
+                break;
+            case ',':
+
+                transformControls.children[2].rotation.z -= shift;
+
+                setTransformParams({
+                    coords: {
+                        x: transformControls.children[2].position.x,
+                        y: transformControls.children[2].position.y
+                    },
+                    angle: transformControls.children[2].rotation.z
+                });
+
+                break;
+            case '.':
+
+                transformControls.children[2].rotation.z += shift;
+
+                setTransformParams({
+                    coords: {
+                        x: transformControls.children[2].position.x,
+                        y: transformControls.children[2].position.y
+                    },
+                    angle: transformControls.children[2].rotation.z
+                });
+
+                break;
+            case 'б':
+
+                transformControls.children[2].rotation.z -= shift;
+
+                setTransformParams({
+                    coords: {
+                        x: transformControls.children[2].position.x,
+                        y: transformControls.children[2].position.y
+                    },
+                    angle: transformControls.children[2].rotation.z
+                });
+
+                break;
+            case 'ю':
+
+                transformControls.children[2].rotation.z += shift;
+
+                setTransformParams({
+                    coords: {
+                        x: transformControls.children[2].position.x,
+                        y: transformControls.children[2].position.y
+                    },
+                    angle: transformControls.children[2].rotation.z
+                });
+
+                break;
+            default:
                 break;
         }
     });

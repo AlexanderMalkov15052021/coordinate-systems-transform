@@ -17,7 +17,7 @@ const ThreeScene = observer(() => {
 
     useEffect(() => {
 
-        const renderer = Render({ ...Scene(sceneRef.current, setTransformParams, values), values });
+        const renderer = Render({ ...Scene(sceneRef.current, values, setTransformParams), values });
 
         return () => {
             renderer.setAnimationLoop(null);
