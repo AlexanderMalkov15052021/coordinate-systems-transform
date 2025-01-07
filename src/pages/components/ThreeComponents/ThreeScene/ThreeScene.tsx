@@ -6,23 +6,41 @@ import { Render } from "../Render/Render";
 import { TransformStor } from "@/entities";
 import { observer } from "mobx-react-lite";
 import ApplyBtn from "../../ApplyBtn/ApplyBtn";
-
+import { onDraggingChangedTransformControls } from "@/helpers/events/onDraggingChangedTransformControls";
+import { onKeydownTransformControls } from "@/helpers/events/onKeydownTransformControls";
 
 const ThreeScene = observer(() => {
     const sceneRef = useRef<HTMLDivElement>(null);
 
     const {
-        store: { values, setTransformParams },
+        store: { values, transformControlsMode, setTransformParams, setParams, setTransformControlsMode },
     } = TransformStor;
 
     useEffect(() => {
 
-        const renderer = Render({ ...Scene(sceneRef.current, values, setTransformParams), values });
+        const scene = Scene(sceneRef.current, values, transformControlsMode);
+
+        const renderer = Render({ ...scene, values });
+
+        const draggingHandler = (evt: any) => onDraggingChangedTransformControls(evt, scene, setTransformParams);
+
+        const keydownHandler = (evt: any) => onKeydownTransformControls(
+            evt, scene, values, setTransformParams, setParams, setTransformControlsMode
+        );
+
+        scene.transformControls.addEventListener('dragging-changed', draggingHandler);
+
+        window.addEventListener('keydown', keydownHandler);
 
         return () => {
             renderer.setAnimationLoop(null);
 
             sceneRef.current && sceneRef.current.removeChild(renderer.domElement);
+
+            scene.transformControls.removeEventListener('dragging-changed', draggingHandler);
+
+            window.removeEventListener('keydown', keydownHandler);
+
         }
     }, [values]);
 

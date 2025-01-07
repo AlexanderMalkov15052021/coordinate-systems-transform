@@ -233,3 +233,4 @@ export type Points = {
     locationPoints: laneMark[],
 };
 
+export type TransformControlsMode = "translate" | "rotate" | "scale";

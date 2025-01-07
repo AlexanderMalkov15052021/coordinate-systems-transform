@@ -1,6 +1,6 @@
 import { emptyMooe } from "@/helpers/emptyMooe/emptyMooe";
 import { getNewCoordsWhenTurning } from "@/helpers/math";
-import { FieldType, laneMark, MooeDoc } from "@/types";
+import { FieldType, laneMark, MooeDoc, TransformControlsMode } from "@/types";
 import { makeAutoObservable } from "mobx";
 
 class TransformStor {
@@ -13,6 +13,8 @@ class TransformStor {
     mooeDoc: MooeDoc = emptyMooe;
     mooeStr: string = "";
     summaryAngle: number = 0;
+
+    transformControlsMode: TransformControlsMode = "translate";
 
     transformParams: { coords: { x: number, y: number }, angle: number } = { coords: { x: 0, y: 0 }, angle: 0 }
     tmpTransformParams: { coords: { x: number, y: number }, angle: number } = { coords: { x: 0, y: 0 }, angle: 0 }
@@ -38,6 +40,8 @@ class TransformStor {
     constructor() {
         makeAutoObservable(this);
     }
+
+    setTransformControlsMode = (mode: TransformControlsMode) => this.transformControlsMode = mode;
 
     setLoadingTime = (val: number[]) => this.loadingTime = val;
     setIsMessageShow = (val: boolean) => this.isMessageShow = val;
