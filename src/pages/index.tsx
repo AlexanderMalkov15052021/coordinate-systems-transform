@@ -2,7 +2,7 @@ import Head from "next/head";
 
 import Title from "antd/lib/typography/Title";
 
-import { MainContent } from "./components/MainContent/MainContent";
+import MainContent from "./components/MainContent/MainContent";
 
 export default function Home() {
 

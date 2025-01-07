@@ -1,13 +1,13 @@
 import { useEffect, useRef } from "react";
 
-import Scene from "../Scene/Scene";
 import styles from "./ThreeScene.module.css"
-import { Render } from "../Render/Render";
 import { TransformStor } from "@/entities";
 import { observer } from "mobx-react-lite";
 import ApplyBtn from "../../ApplyBtn/ApplyBtn";
 import { onDraggingChangedTransformControls } from "@/helpers/events/onDraggingChangedTransformControls";
 import { onKeydownTransformControls } from "@/helpers/events/onKeydownTransformControls";
+import Scene from "@/modules/threeModules/Scene/Scene";
+import { Render } from "@/modules/threeModules/Render/Render";
 
 const ThreeScene = observer(() => {
     const sceneRef = useRef<HTMLDivElement>(null);

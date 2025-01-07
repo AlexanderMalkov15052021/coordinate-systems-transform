@@ -10,7 +10,7 @@ import TypeErrorMessage from "../TypeErrorMessage/TypeErrorMessage"
 import UploadForm from "../UploadForm/UploadForm"
 import { observer } from 'mobx-react-lite';
 
-export const MainContent = observer(() => {
+const MainContent = observer(() => {
 
     const {
         store: { isShowDashboard },
@@ -41,3 +41,5 @@ export const MainContent = observer(() => {
 
     </main>
 });
+
+export default MainContent
